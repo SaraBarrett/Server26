@@ -1,18 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-
+use Illuminate\Support\Facades\View;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('welcome');
+})->name('welcome_routename');
 
 //hello world: primeira rota
 Route::get('/hello', function () {
     return "<h1>Olá mundo</h1>";
 });
 
+/*primeira view */
+Route::get('/home', function(){
+    return view('utils.homepage');
+
+})->name('homepage');
 
 /* Rota com variáveis */
 Route::get('/testevariaveis', function () {
@@ -24,7 +28,7 @@ Route::get('/testevariaveis', function () {
     $name = 'Margarida';
 
     return "<h5>Variáveis $name </h5>";
-});
+})->name('testevariaveis');
 
 
 /* Rota com parametros */
@@ -35,7 +39,12 @@ Route::get('/parametros/{name}', function ($name) {
 });
 
 
+//users
+Route::get('/add_user', function(){
+    return view('users.add_user');
+})->name('users.add');
+
 //Route de erro
 Route::fallback(function(){
-     return "<h3>Desculpe, esta rota não existe</h3>";
+     return view('utils.fallback');
 });
