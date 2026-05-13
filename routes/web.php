@@ -1,11 +1,11 @@
 <?php
 
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\UtilController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome_routename');
+Route::get('/', [UtilController::class, 'welcomeFunction'])->name('welcome_routename');
 
 //hello world: primeira rota
 Route::get('/hello', function () {
@@ -40,9 +40,9 @@ Route::get('/parametros/{name}', function ($name) {
 
 
 //users
-Route::get('/add_user', function(){
-    return view('users.add_user');
-})->name('users.add');
+Route::get('/add_user', [UserController::class, 'addUser'])->name('users.add');
+
+Route::get('/all_users', [UserController::class, 'allUsers'])->name('users.all');
 
 //Route de erro
 Route::fallback(function(){

@@ -1,13 +1,7 @@
 @extends('layouts.fo')
 
 @section('content')
-    @php
-        //consulta à base de dados
-        $class = 'SD';
-
-        //consulta à bd select * from students
-        $students = ['Luís', 'Afonso', 'Eduarda', 'Joaquim'];
-    @endphp
+    
 
 
     <h4>Bem vindo à aplicação de Servidor!</h4>
