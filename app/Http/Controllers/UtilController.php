@@ -18,7 +18,13 @@ class UtilController extends Controller
         //consulta à bd select * from students
         $students = ['Luís', 'Afonso', 'Eduarda', 'Joaquim'];
 
-        return view('utils.homepage', compact('class', 'students'));
+        $cesaeInfo = [
+        'name'=>'Cesae',
+        'address'=>'Rua Ciríaco Cardoso 186, 4150-212 Porto',
+        'email'=>'cesae@cesae.pt'
+        ];
+
+        return view('utils.homepage', compact('class', 'students', 'cesaeInfo'));
     }
 
 
