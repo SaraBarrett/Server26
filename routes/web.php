@@ -13,10 +13,7 @@ Route::get('/hello', function () {
 });
 
 /*primeira view */
-Route::get('/home', function(){
-    return view('utils.homepage');
-
-})->name('homepage');
+Route::get('/home', [UtilController::class, 'homepageFunction'])->name('homepage');
 
 /* Rota com variáveis */
 Route::get('/testevariaveis', function () {
