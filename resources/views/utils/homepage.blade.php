@@ -5,7 +5,8 @@
 
 
     <h4>Bem vindo à aplicação de Servidor!</h4>
-    <h6>Para mais informações contacte o {{ $cesaeInfo['name'] }} e o contacto é {{ $cesaeInfo['email'] }}. Morada:  {{ $cesaeInfo['address'] }}</h6>
+    <h6>Para mais informações contacte o {{ $cesaeInfo['name'] }} e o contacto é {{ $cesaeInfo['email'] }}. Morada:
+        {{ $cesaeInfo['address'] }}</h6>
 
     @if ($class)
         <h3>Olá turma {{ $class }}</h3>
@@ -22,5 +23,6 @@
         <li><a href="{{ route('welcome_routename') }}">Welcome</a></li>
         <li><a href="{{ route('testevariaveis') }}">Variáveis</a></li>
         <li><a href="{{ route('users.add') }}">Adicionar user</a></li>
+        <li><a href="{{ route('users.all') }}">Todos os users</a></li>
     </ul>
 @endsection
