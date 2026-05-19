@@ -44,6 +44,8 @@ Route::get('/all_users', [UserController::class, 'allUsers'])->name('users.all')
 //rota com parametros que carrega a ficha de cada user
 Route::get('/view_user/{id}', [UserController::class, 'viewUser'])->name('users.view');
 
+Route::get('/delete_user/{id}', [UserController::class, 'deleteUser'])->name('users.delete');
+
 
 //tasks
 Route::get('/all_tasks', [TaskController::class, 'allTasks'])->name('tasks.all');
