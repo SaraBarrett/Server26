@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UtilController;
 use Illuminate\Support\Facades\Route;
@@ -38,8 +39,14 @@ Route::get('/parametros/{name}', function ($name) {
 
 //users
 Route::get('/add_user', [UserController::class, 'addUser'])->name('users.add');
-
 Route::get('/all_users', [UserController::class, 'allUsers'])->name('users.all');
+
+//rota com parametros que carrega a ficha de cada user
+Route::get('/view_user/{id}', [UserController::class, 'viewUser'])->name('users.view');
+
+
+//tasks
+Route::get('/all_tasks', [TaskController::class, 'allTasks'])->name('tasks.all');
 
 //Route de erro
 Route::fallback(function(){

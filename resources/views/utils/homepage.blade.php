@@ -24,5 +24,6 @@
         <li><a href="{{ route('testevariaveis') }}">Variáveis</a></li>
         <li><a href="{{ route('users.add') }}">Adicionar user</a></li>
         <li><a href="{{ route('users.all') }}">Todos os users</a></li>
+        <li><a href="{{ route('tasks.all') }}">Tarefas</a></li>
     </ul>
 @endsection
