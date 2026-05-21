@@ -41,8 +41,13 @@ Route::get('/parametros/{name}', function ($name) {
 Route::get('/add_user', [UserController::class, 'addUser'])->name('users.add');
 Route::get('/all_users', [UserController::class, 'allUsers'])->name('users.all');
 
+
 //rota com parametros que carrega a ficha de cada user
 Route::get('/view_user/{id}', [UserController::class, 'viewUser'])->name('users.view');
+
+//rota que recebe os dados do formulário e os insere na base de dados
+Route::post('/store_user', [UserController::class, 'storeUser'])->name('users.store');
+
 
 Route::get('/delete_user/{id}', [UserController::class, 'deleteUser'])->name('users.delete');
 

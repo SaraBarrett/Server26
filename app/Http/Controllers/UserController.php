@@ -59,4 +59,15 @@ class UserController extends Controller
         return back();
 
     }
+
+    public function storeUser(Request $request){
+        //dd($request->all());
+
+        $request->validate([
+            'name'=>'required|string|max:50',
+            'email'=>'required|email|unique:users',
+            'password'=>'min:8|required'
+        ]);
+
+    }
 }
