@@ -16,7 +16,7 @@
             <input name="email" required type="email" class="form-control" id="exampleInputEmail1"
                 aria-describedby="emailHelp">
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-            aria-describedby="emailHelp">
+        
             @error('email')
                 <p>email inválido ou inexistente</p>
             @enderror

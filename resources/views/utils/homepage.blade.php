@@ -25,5 +25,6 @@
         <li><a href="{{ route('users.add') }}">Adicionar user</a></li>
         <li><a href="{{ route('users.all') }}">Todos os users</a></li>
         <li><a href="{{ route('tasks.all') }}">Tarefas</a></li>
+        <li><a href="{{ route('tasks.add') }}">Adicionar Tarefas</a></li>
     </ul>
 @endsection

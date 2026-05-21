@@ -20,4 +20,30 @@ class TaskController extends Controller
         //retorna a view com dados lá dentro
         return view('tasks.all_tasks', compact('tasks'));
     }
+
+    public function storeTask(Request $request){
+       //dd($request->all());
+
+       $request->validate([
+            'name'=>'required|string|max:50',
+            'user_id'=> 'required|exists:users,id'
+       ]);
+
+       DB::table('tasks')->insert([
+            'name' => $request->name,
+            'user_id'=>$request->user_id
+       ]);
+
+       return redirect()->route('tasks.all')->with('message', 'Tarefa actualizada com sucesso!');
+
+
+    }
+
+    public function addTask(){
+        $users = db::table('users')
+        ->select('users.name', 'users.id')
+        ->get();
+
+        return view('tasks.add_task', compact('users'));
+    }
 }

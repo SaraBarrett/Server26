@@ -1,6 +1,13 @@
 @extends('layouts.fo')
 
 @section('content')
+    @if(session('message'))
+    <div class="alert alert-success">
+        {{session('message')}}
+
+    </div>
+    @endif
+
     <h6>A pessoa de contacto é {{ $contactInfo['name'] }} e o email é o {{ $contactInfo['email'] }} </h6>
 
     <h3>Aqui tens todos os users (simulação da base de dados)</h3>

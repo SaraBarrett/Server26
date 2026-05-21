@@ -39,6 +39,9 @@ Route::get('/parametros/{name}', function ($name) {
 
 //users
 Route::get('/add_user', [UserController::class, 'addUser'])->name('users.add');
+
+
+
 Route::get('/all_users', [UserController::class, 'allUsers'])->name('users.all');
 
 
@@ -54,6 +57,11 @@ Route::get('/delete_user/{id}', [UserController::class, 'deleteUser'])->name('us
 
 //tasks
 Route::get('/all_tasks', [TaskController::class, 'allTasks'])->name('tasks.all');
+
+//rota que carrega visualmente o formulário
+Route::get('/add_task', [TaskController::class, 'addTask'])->name('tasks.add');
+
+Route::post('/store_task', [TaskController::class, 'storeTask'])->name('tasks.store');
 
 //Route de erro
 Route::fallback(function(){

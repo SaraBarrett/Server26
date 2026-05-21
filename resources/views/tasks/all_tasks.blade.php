@@ -1,6 +1,13 @@
 @extends('layouts.fo')
 
 @section('content')
+    @if (session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+
+        </div>
+    @endif
+
     <h4>
         Aqui carregamos todos as tarefas</h4>
     <table class="table">
@@ -28,7 +35,7 @@
                             em execução
                         @endif --}}
 
-                        {{$task->status == 1 ? 'concluído': 'execução' }}
+                        {{ $task->status == 1 ? 'concluído' : 'execução' }}
                     </td>
                     <td>{{ $task->due_at }}</td>
                     <td>{{ $task->username }}</td>
