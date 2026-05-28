@@ -19,6 +19,8 @@
                 <th scope="col">Status</th>
                 <th scope="col">Prazo</th>
                 <th scope="col">User</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -39,7 +41,8 @@
                     </td>
                     <td>{{ $task->due_at }}</td>
                     <td>{{ $task->username }}</td>
-
+                    <td><a href="{{ route('tasks.view', $task->id) }}" class="btn btn-info">Ver</a></td>
+                    <td><a href="{{ route('tasks.delete', $task->id) }}" class="btn btn-danger">Apagar</a></td>
                 </tr>
             @endforeach
 

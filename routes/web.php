@@ -51,6 +51,8 @@ Route::get('/view_user/{id}', [UserController::class, 'viewUser'])->name('users.
 //rota que recebe os dados do formulário e os insere na base de dados
 Route::post('/store_user', [UserController::class, 'storeUser'])->name('users.store');
 
+//rota que recebe os dados do user
+Route::put('/update-user', [UserController::class, 'updateUser'])->name('users.update');
 
 Route::get('/delete_user/{id}', [UserController::class, 'deleteUser'])->name('users.delete');
 
@@ -62,6 +64,10 @@ Route::get('/all_tasks', [TaskController::class, 'allTasks'])->name('tasks.all')
 Route::get('/add_task', [TaskController::class, 'addTask'])->name('tasks.add');
 
 Route::post('/store_task', [TaskController::class, 'storeTask'])->name('tasks.store');
+
+//rota com parametros que carrega a ficha de cada tarefa
+Route::get('/view_task/{id}', [TaskController::class, 'viewTask'])->name('tasks.view');
+Route::get('/delete_task/{id}', [TaskController::class, 'deleteTask'])->name('tasks.delete');
 
 //Route de erro
 Route::fallback(function(){
