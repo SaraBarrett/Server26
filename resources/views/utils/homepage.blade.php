@@ -5,6 +5,9 @@
 
 
     <h4>Bem vindo à aplicação de Servidor!</h4>
+    @auth
+        <h5>Olá {{Auth::user()->name}}</h5>
+    @endauth
     <h6>Para mais informações contacte o {{ $cesaeInfo['name'] }} e o contacto é {{ $cesaeInfo['email'] }}. Morada:
         {{ $cesaeInfo['address'] }}</h6>
 

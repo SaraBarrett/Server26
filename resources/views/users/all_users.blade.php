@@ -24,7 +24,7 @@
         <input type="text" name="search">
         <button type="submit">Procurar</button>
     </form>
-    
+
     <table class="table">
         <thead>
             <tr>
@@ -43,8 +43,17 @@
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->nif }}</td>
-                    <td><a href="{{ route('users.view', $user->id) }}" class="btn btn-info">Ver / editar</a></td>
-                    <td><a href="{{ route('users.delete', $user->id) }}" class="btn btn-danger">Apagar</a></td>
+                    @auth
+                        <td><a href="{{ route('users.view', $user->id) }}" class="btn btn-info">Ver / editar</a></td>
+
+
+                        @if (Auth::user()->email == 'admin@gmail.com')
+                            <td><a href="{{ route('users.delete', $user->id) }}" class="btn btn-danger">Apagar</a></td>
+                        @endif
+
+                    @endauth
+
+
                 </tr>
             @endforeach
         </tbody>

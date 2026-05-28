@@ -58,7 +58,7 @@ Route::get('/delete_user/{id}', [UserController::class, 'deleteUser'])->name('us
 
 
 //tasks
-Route::get('/all_tasks', [TaskController::class, 'allTasks'])->name('tasks.all');
+Route::get('/all_tasks', [TaskController::class, 'allTasks'])->name('tasks.all')->middleware('auth');
 
 //rota que carrega visualmente o formulário
 Route::get('/add_task', [TaskController::class, 'addTask'])->name('tasks.add');
