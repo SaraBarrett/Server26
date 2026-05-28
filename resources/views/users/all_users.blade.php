@@ -1,11 +1,11 @@
 @extends('layouts.fo')
 
 @section('content')
-    @if(session('message'))
-    <div class="alert alert-success">
-        {{session('message')}}
+    @if (session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
 
-    </div>
+        </div>
     @endif
 
     <h6>A pessoa de contacto é {{ $contactInfo['name'] }} e o email é o {{ $contactInfo['email'] }} </h6>
@@ -38,7 +38,7 @@
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->nif }}</td>
-                    <td><a href="{{ route('users.view', $user->id) }}" class="btn btn-info">Ver</a></td>
+                    <td><a href="{{ route('users.view', $user->id) }}" class="btn btn-info">Ver / editar</a></td>
                     <td><a href="{{ route('users.delete', $user->id) }}" class="btn btn-danger">Apagar</a></td>
                 </tr>
             @endforeach

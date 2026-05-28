@@ -65,6 +65,8 @@ Route::get('/add_task', [TaskController::class, 'addTask'])->name('tasks.add');
 
 Route::post('/store_task', [TaskController::class, 'storeTask'])->name('tasks.store');
 
+Route::put('/update_task', [TaskController::class, 'updateTask'])->name('tasks.update');
+
 //rota com parametros que carrega a ficha de cada tarefa
 Route::get('/view_task/{id}', [TaskController::class, 'viewTask'])->name('tasks.view');
 Route::get('/delete_task/{id}', [TaskController::class, 'deleteTask'])->name('tasks.delete');
