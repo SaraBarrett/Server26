@@ -35,7 +35,18 @@ class UserController extends Controller
         // ->get();
 
         //query usando o model
-        $usersFromDb= User::get();
+
+        $search = request()->query('search')?request()->query('search'): null;
+
+
+        $usersFromDb= Db::table('users');
+
+        if( $search){
+            $usersFromDb->where('name', 'LIKE', "%{$search}%" );
+            $usersFromDb->orWhere('email', 'LIKE', "%{$search}%" );
+        }
+
+        $usersFromDb= $usersFromDb->get();
 
         //dd( $usersFromDb);
 
