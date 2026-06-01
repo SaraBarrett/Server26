@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UtilController;
@@ -70,6 +71,9 @@ Route::put('/update_task', [TaskController::class, 'updateTask'])->name('tasks.u
 //rota com parametros que carrega a ficha de cada tarefa
 Route::get('/view_task/{id}', [TaskController::class, 'viewTask'])->name('tasks.view');
 Route::get('/delete_task/{id}', [TaskController::class, 'deleteTask'])->name('tasks.delete');
+
+//backoffice
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
 //Route de erro
 Route::fallback(function(){
