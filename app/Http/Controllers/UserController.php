@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -92,17 +93,27 @@ class UserController extends Controller
     }
 
     public function updateUser(Request $request){
+        //dd($request->all());
+
+
         $request->validate([
             'name'=>'required|string|max:50',
+            'photo'=>'image'
         ]);
 
+        $imagePath = null;
+
+        if($request->hasFile('photo')){
+             $imagePath = Storage::putFile('profilePics', $request->photo);
+        }
 
         db::table('users')
         ->where('id',$request->id)
         ->update([
             'name' =>$request->name,
              'address' =>$request->address,
-             'nif' =>$request->nif
+             'nif' =>$request->nif,
+             'photo'=>$imagePath
         ]);
 
         return redirect()->route('users.all')->with('message', 'user actualizado com sucesso!');
