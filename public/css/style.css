@@ -3,7 +3,12 @@ body{
 }
 
 
+
 img{
     width: 250px;
     height: 180px;
+}
+.img-photo{
+ width: 85px;
+ height: 60px;
 }
